@@ -1,0 +1,1 @@
+-c --device DARMSTM -g -O0 --apcs=interwork -I.\SRC -I.\Libraries\STM32F10x_StdPeriph_Driver\inc -I.\Libraries\CMSIS\Core\CM3 -I "C:\Keil\ARM\INC\ST\STM32F10x" -o "system_stm32f10x.o" --omf_browse "system_stm32f10x.crf" --depend "system_stm32f10x.d" "Libraries\CMSIS\Core\CM3\system_stm32f10x.c"
