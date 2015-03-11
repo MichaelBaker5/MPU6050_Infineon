@@ -10,42 +10,79 @@
 #define Control_P5_2(Mode, DriveStrength)       PORT5->IOCR0 = (PORT5->IOCR0 & ~0x00F80000) | (Mode << 19); PORT5->PDR0 = (PORT5->PDR0 & ~0x00000700) | (DriveStrength << 8)
 // Mode Input 0x00
 #define   uchar unsigned char
-#define   uint unsigned int	
+
+#define   uint unsigned int
+
+
 
 // 定义MPU6050内部地址
+
 //****************************************
+
 #define	SMPLRT_DIV		0x19	//陀螺仪采样率，典型值：0x07(125Hz)
+
 #define	CONFIG			0x1A	//低通滤波频率，典型值：0x06(5Hz)
+
 #define	GYRO_CONFIG		0x1B	//陀螺仪自检及测量范围，典型值：0x18(不自检，2000deg/s)
+
 #define	ACCEL_CONFIG	0x1C	//加速计自检、测量范围及高通滤波频率，典型值：0x01(不自检，2G，5Hz)
+
 #define	ACCEL_XOUT_H	0x3B
+
 #define	ACCEL_XOUT_L	0x3C
+
 #define	ACCEL_YOUT_H	0x3D
+
 #define	ACCEL_YOUT_L	0x3E
+
 #define	ACCEL_ZOUT_H	0x3F
+
 #define	ACCEL_ZOUT_L	0x40
+
 #define	TEMP_OUT_H		0x41
+
 #define	TEMP_OUT_L		0x42
 
+
+
 #define	GYRO_XOUT_H		0x43
-#define	GYRO_XOUT_L		0x44	
+
+#define	GYRO_XOUT_L		0x44
+
 #define	GYRO_YOUT_H		0x45
+
 #define	GYRO_YOUT_L		0x46
+
 #define	GYRO_ZOUT_H		0x47
+
 #define	GYRO_ZOUT_L		0x48
 
+
+
 #define	PWR_MGMT_1		0x6B	//电源管理，典型值：0x00(正常启用)
+
 #define	WHO_AM_I		0x75	//IIC地址寄存器(默认数值0x68，只读)
+
+
+
 
 
 //****************************
 
+
+
 #define	MPU6050_Addr   0xD0	  //定义器件在IIC总线中的从地址,根据ALT  ADDRESS地址引脚不同修改
 
+
+
 unsigned char TX_DATA[4];  	 //显示据缓存区
+
 unsigned char BUF[10];       //接收数据缓存区
+
 char  test=0; 				 //IIC用到
+
 short T_X,T_Y,T_Z,T_T;		 //X,Y,Z轴，温度
+
 
 typedef enum INPUT_Type
 {
@@ -90,6 +127,12 @@ volatile uint32_t Value;
 static volatile uint32_t SDA_IN;
 static volatile uint32_t TEMP = 0;
 static uint32_t I2C_Status = (uint32_t)0;
+
+handle_t TimerId;
+handle_t TimerId_1;
+volatile uint32_t TimerId_2_cnt = (uint32_t)0;
+volatile uint32_t soft_cnt      = (uint32_t)0;
+bool TimerExpired = FALSE;
 /*************************************/
 #ifdef XMC_Soft_IIC
 
@@ -114,6 +157,8 @@ static uint32_t I2C_Status = (uint32_t)0;
 
 //IO004_EnableOutputDriver(&IO004_Handle0,IO004_OPENDRAIN);
 
+void delay5ms(void);
+
 void DATA_printf(uchar *s,short temp_data)
 {
     if(temp_data < 0)
@@ -129,7 +174,21 @@ void DATA_printf(uchar *s,short temp_data)
     temp_data = temp_data     % 100;      //  去除百位
     *++s      = temp_data/10  + 0x30; //  取十位 加上0的ascii码
     temp_data = temp_data     % 10;       //  去除十位
-    *++s      = temp_data     + 0x30; //  取个位 加上0的ascii码 
+    *++s      = temp_data     + 0x30; //  取个位 加上0的ascii码
+}
+//void USART1_SendData(char *s)
+void USART1_SendData(char *s) // 这里需要为char* 否则打印出来的数据乱码
+{
+	char *p;
+	p=s;
+	while(!UART001_WriteDataBytes(&UART001_Handle0, p, 1));
+/*	while(*p != '\0')
+	{
+		 USART1_Send_Byte(*p);
+
+        UART001_WriteDataBytes(&UART001_Handle0, p, 1);
+		p++;
+	}*/
 }
 
 static void I2C_delay(void)
@@ -335,85 +394,169 @@ bool i2cWriteBuffer(uint8_t addr, uint8_t reg, uint8_t len, uint8_t * data)
 }
 //单字节写入*******************************************
 
+
+
 bool Single_Write(unsigned char SlaveAddress,unsigned char REG_Address,unsigned char REG_data)		     //void
+
 {
+
   	if(!I2C_Start())return FALSE;
-    I2C_SendByte(SlaveAddress);   //发送设备地址+写信号//I2C_SendByte(((REG_Address & 0x0700) >>7) | SlaveAddress & 0xFFFE);//设置高起始地址+器件地址 
+
+    I2C_SendByte(SlaveAddress);   //发送设备地址+写信号//I2C_SendByte(((REG_Address & 0x0700) >>7) | SlaveAddress & 0xFFFE);//设置高起始地址+器件地址
+
     if(!I2C_WaitAck()){I2C_Stop(); return FALSE;}
-    I2C_SendByte(REG_Address );   //设置低起始地址      
-    I2C_WaitAck();	
+
+    I2C_SendByte(REG_Address );   //设置低起始地址
+
+    I2C_WaitAck();
+
     I2C_SendByte(REG_data);
-    I2C_WaitAck();   
-    I2C_Stop(); 
-    delay5ms();// TODO:   需要实现 
+
+    I2C_WaitAck();
+
+    I2C_Stop();
+
+    delay5ms();// TODO:   需要实现
+
     return TRUE;
+
 }
 
+
+
 //单字节读取*****************************************
+
 unsigned char Single_Read(unsigned char SlaveAddress,unsigned char REG_Address)
-{   unsigned char REG_data;     	
+
+{   unsigned char REG_data;
+
 	if(!I2C_Start())return FALSE;
-    I2C_SendByte(SlaveAddress); //I2C_SendByte(((REG_Address & 0x0700) >>7) | REG_Address & 0xFFFE);//设置高起始地址+器件地址 
+
+    I2C_SendByte(SlaveAddress); //I2C_SendByte(((REG_Address & 0x0700) >>7) | REG_Address & 0xFFFE);//设置高起始地址+器件地址
+
     if(!I2C_WaitAck()){I2C_Stop();test=1; return FALSE;}
-    I2C_SendByte((u8) REG_Address);   //设置低起始地址      
-    I2C_WaitAck();
-    I2C_Start();
-    I2C_SendByte(SlaveAddress+1);
+
+    I2C_SendByte((u8) REG_Address);   //设置低起始地址
+
     I2C_WaitAck();
 
-	REG_data= I2C_RadeByte();
+    I2C_Start();
+
+    I2C_SendByte(SlaveAddress+1);
+
+    I2C_WaitAck();
+
+
+
+	REG_data= I2C_ReceiveByte();
+
     I2C_NoAck();
+
     I2C_Stop();
+
     //return TRUE;
+
 	return REG_data;
+
+
 
 }
 void Init_MPU6050(void)
+
 {
+
 /*
+
    Single_Write(MPU6050_Addr,PWR_M, 0x80);   //
+
    Single_Write(MPU6050_Addr,SMPL, 0x07);    //
+
    Single_Write(MPU6050_Addr,DLPF, 0x1E);    //±2000°
+
    Single_Write(MPU6050_Addr,INT_C, 0x00 );  //
+
    Single_Write(MPU6050_Addr,PWR_M, 0x00);   //
+
 */
+
    	Single_Write(MPU6050_Addr,PWR_MGMT_1, 0x00);	//解除休眠状态
+
 	Single_Write(MPU6050_Addr,SMPLRT_DIV, 0x07);
+
 	Single_Write(MPU6050_Addr,CONFIG, 0x06);
+
 	Single_Write(MPU6050_Addr,GYRO_CONFIG, 0x18);
+
 	Single_Write(MPU6050_Addr,ACCEL_CONFIG, 0x01);
+
 }
 //******读取MPU6050数据****************************************
+
 void READ_MPU6050(void)
+
 {
-   BUF[0]=Single_Read(MPU6050_Addr,GYRO_XOUT_L); 
+
+   BUF[0]=Single_Read(MPU6050_Addr,GYRO_XOUT_L);
+
    BUF[1]=Single_Read(MPU6050_Addr,GYRO_XOUT_H);
+
    T_X=	(BUF[1]<<8)|BUF[0];
+
    T_X/=16.4; 						   //读取计算X轴数据
 
+
+
    BUF[2]=Single_Read(MPU6050_Addr,GYRO_YOUT_L);
+
    BUF[3]=Single_Read(MPU6050_Addr,GYRO_YOUT_H);
+
    T_Y=	(BUF[3]<<8)|BUF[2];
+
    T_Y/=16.4; 						   //读取计算Y轴数据
+
    BUF[4]=Single_Read(MPU6050_Addr,GYRO_ZOUT_L);
+
    BUF[5]=Single_Read(MPU6050_Addr,GYRO_ZOUT_H);
+
    T_Z=	(BUF[5]<<8)|BUF[4];
+
    T_Z/=16.4; 					       //读取计算Z轴数据
 
-  // BUF[6]=Single_Read(MPU6050_Addr,TEMP_OUT_L); 
-  // BUF[7]=Single_Read(MPU6050_Addr,TEMP_OUT_H); 
+
+
+  // BUF[6]=Single_Read(MPU6050_Addr,TEMP_OUT_L);
+
+  // BUF[7]=Single_Read(MPU6050_Addr,TEMP_OUT_H);
+
   // T_T=(BUF[7]<<8)|BUF[6];
+
   // T_T = 35+ ((double) (T_T + 13200)) / 280;// 读取计算出温度
+
 }
+
+/*void mypuchar(uchar axis)
+{
+	USART1_SendData(&axis);
+}*/
  //********串口发送数据***************************************
+
  void Send_data(uchar axis)
+
  {uchar i;
-  USART1_SendData(axis);
-  USART1_SendData(':');
-  for(i=0;i<4;i++)USART1_SendData(TX_DATA[i]);
-  USART1_SendData(' ');
-  USART1_SendData(' ');
+
+  USART1_SendData(&axis);
+  i = ':';
+  //USART1_SendData('\:');
+  USART1_SendData(&i);
+  for(i=0;i<4;i++)USART1_SendData(&TX_DATA[i]);
+  i = ' ';
+ // USART1_SendData('\ ');
+  USART1_SendData(&i);
+ // USART1_SendData('\ ');
+  USART1_SendData(&i);
  }
+
+
 
 #endif
 
@@ -739,7 +882,8 @@ uint16_t i2cGetErrorCounter(void)
 }
 
 
-
+void my_func_a(void* Temp);
+void millisecond_handler(void* Temp);
 
 int main()
 {
@@ -748,7 +892,16 @@ int main()
 	IO004_EnableOutputDriver(&IO004_Handle1,OUTPUT_OD_GP);
 	uint8_t test[2] = {0x80,0x45};
 	DAVE_Init();
-    delay10ms();
+	TimerId   = SYSTM001_CreateTimer(10,SYSTM001_PERIODIC,my_func_a,NULL);
+	TimerId_1 = SYSTM001_CreateTimer(1,SYSTM001_PERIODIC,millisecond_handler,NULL);
+  //  delay10ms();
+
+    TimerId_2_cnt  = 10;
+    SYSTM001_StartTimer(TimerId_1);
+    while(TimerId_2_cnt != 0)
+    {}
+    SYSTM001_StopTimer(TimerId_1);
+
     Init_MPU6050();
 	while(1)
 	{
@@ -757,18 +910,60 @@ int main()
 //    /*	SCL_H;
 //		SCL_L;*/
     READ_MPU6050();	         //读取MPU6050数据
+
     DATA_printf(TX_DATA,T_X);//转换X轴数据到数组
+
 	Send_data('X');			 //发送X轴数
+
 	DATA_printf(TX_DATA,T_Y);//转换Y轴数据到数组
+
 	Send_data('Y');			 //发送Y轴数
+
 	DATA_printf(TX_DATA,T_Z);//转换Z轴数据到数组
+
 	Send_data('Z');			 //发送Z轴数
+
 	DATA_printf(TX_DATA,T_T);//转换温度数据到数组
+
 	Send_data('T');			 //发送温度数据
+/*
+
 	USART1_SendData(0X0D);	 //换行
+
 	USART1_SendData(0X0A);	 //回车
-	Delayms(5);				 //延时
+*/
+/*
+	Send_data(0X0D);	 //换行
+
+	Send_data(0X0A);	 //回车
+*/
+	//Delayms(5);				 //延时
+    delay5ms();
 
 	}
 	return 0;
+}
+
+void my_func_a(void* Temp)
+{
+	soft_cnt ++;
+	if(soft_cnt == 1)
+	{
+		soft_cnt = 0;
+		TimerExpired = TRUE;
+	}
+
+}
+void millisecond_handler(void* Temp)
+{
+    TimerId_2_cnt = TimerId_2_cnt - 1;
+}
+void delay5ms(void)
+{
+    TimerId_2_cnt  = 5;
+    SYSTM001_StartTimer(TimerId_1);
+    while(TimerId_2_cnt != 0)
+    {}
+    SYSTM001_StopTimer(TimerId_1);
+
 }

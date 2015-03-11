@@ -1644,26 +1644,89 @@
   94:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	IO004_Init();
  106              		.loc 2 94 0
  107 0010 FFF7FEFF 		bl	IO004_Init
-  95:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	
-  96:../Dave/Generated/src/DAVESupport/DAVE3.c ****       
-  97:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	//  MUX configurations
-  98:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	DAVE_MUX_Init();	
- 108              		.loc 2 98 0
- 109 0014 FFF7FEFF 		bl	DAVE_MUX_Init
-  99:../Dave/Generated/src/DAVESupport/DAVE3.c **** } //  End of function DAVE_Init
- 110              		.loc 2 99 0
- 111 0018 80BD     		pop	{r7, pc}
- 112              		.cfi_endproc
- 113              	.LFE112:
- 115 001a 00BF     		.text
- 116              	.Letext0:
- 117              		.file 3 "d:\\dave-3.1.10\\arm-gcc\\bin\\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/i
+  95:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	 
+  96:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	//  Initialization of app 'CLK001'		     
+  97:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	CLK001_Init();
+ 108              		.loc 2 97 0
+ 109 0014 FFF7FEFF 		bl	CLK001_Init
+  98:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	 
+  99:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	//  Initialization of app 'UART001'		     
+ 100:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	UART001_Init();
+ 110              		.loc 2 100 0
+ 111 0018 FFF7FEFF 		bl	UART001_Init
+ 101:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	 
+ 102:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	//  Initialization of app 'SYSTM001'		     
+ 103:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	SYSTM001_Init();
+ 112              		.loc 2 103 0
+ 113 001c FFF7FEFF 		bl	SYSTM001_Init
+ 104:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	
+ 105:../Dave/Generated/src/DAVESupport/DAVE3.c ****       
+ 106:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	//  MUX configurations
+ 107:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	DAVE_MUX_Init();	
+ 114              		.loc 2 107 0
+ 115 0020 FFF7FEFF 		bl	DAVE_MUX_Init
+ 108:../Dave/Generated/src/DAVESupport/DAVE3.c **** } //  End of function DAVE_Init
+ 116              		.loc 2 108 0
+ 117 0024 80BD     		pop	{r7, pc}
+ 118              		.cfi_endproc
+ 119              	.LFE112:
+ 121 0026 00BF     		.section	.text.SystemInit_DAVE3,"ax",%progbits
+ 122              		.align	2
+ 123              		.global	SystemInit_DAVE3
+ 124              		.thumb
+ 125              		.thumb_func
+ 127              	SystemInit_DAVE3:
+ 128              	.LFB113:
+ 109:../Dave/Generated/src/DAVESupport/DAVE3.c **** 
+ 110:../Dave/Generated/src/DAVESupport/DAVE3.c **** 
+ 111:../Dave/Generated/src/DAVESupport/DAVE3.c **** //****************************************************************************
+ 112:../Dave/Generated/src/DAVESupport/DAVE3.c **** // @Function      void SystemInit_DAVE3(void) 
+ 113:../Dave/Generated/src/DAVESupport/DAVE3.c **** //
+ 114:../Dave/Generated/src/DAVESupport/DAVE3.c **** //----------------------------------------------------------------------------
+ 115:../Dave/Generated/src/DAVESupport/DAVE3.c **** // @Description   This function initializes the Clock Init Functions.
+ 116:../Dave/Generated/src/DAVESupport/DAVE3.c **** //
+ 117:../Dave/Generated/src/DAVESupport/DAVE3.c **** //----------------------------------------------------------------------------
+ 118:../Dave/Generated/src/DAVESupport/DAVE3.c **** // @Returnvalue   None
+ 119:../Dave/Generated/src/DAVESupport/DAVE3.c **** //
+ 120:../Dave/Generated/src/DAVESupport/DAVE3.c **** //----------------------------------------------------------------------------
+ 121:../Dave/Generated/src/DAVESupport/DAVE3.c **** // @Parameters    None
+ 122:../Dave/Generated/src/DAVESupport/DAVE3.c **** //
+ 123:../Dave/Generated/src/DAVESupport/DAVE3.c **** //****************************************************************************
+ 124:../Dave/Generated/src/DAVESupport/DAVE3.c **** 
+ 125:../Dave/Generated/src/DAVESupport/DAVE3.c **** void SystemInit_DAVE3(void)
+ 126:../Dave/Generated/src/DAVESupport/DAVE3.c **** {
+ 129              		.loc 2 126 0
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 1, uses_anonymous_args = 0
+ 133 0000 80B5     		push	{r7, lr}
+ 134              	.LCFI5:
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 7, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 00AF     		add	r7, sp, #0
+ 139              	.LCFI6:
+ 140              		.cfi_def_cfa_register 7
+ 127:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	// CLK Initialisation
+ 128:../Dave/Generated/src/DAVESupport/DAVE3.c **** 	CLK001_Init();
+ 141              		.loc 2 128 0
+ 142 0004 FFF7FEFF 		bl	CLK001_Init
+ 129:../Dave/Generated/src/DAVESupport/DAVE3.c **** } //  End of function SystemInit_DAVE3
+ 143              		.loc 2 129 0
+ 144 0008 80BD     		pop	{r7, pc}
+ 145              		.cfi_endproc
+ 146              	.LFE113:
+ 148 000a 00BF     		.text
+ 149              	.Letext0:
+ 150              		.file 3 "d:\\dave-3.1.10\\arm-gcc\\bin\\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/i
 DEFINED SYMBOLS
                             *ABS*:00000000 DAVE3.c
-C:\Users\Mikew\AppData\Local\Temp\ccslvJPB.s:20     .text.NVIC_SetPriorityGrouping:00000000 $t
-C:\Users\Mikew\AppData\Local\Temp\ccslvJPB.s:24     .text.NVIC_SetPriorityGrouping:00000000 NVIC_SetPriorityGrouping
-C:\Users\Mikew\AppData\Local\Temp\ccslvJPB.s:81     .text.DAVE_Init:00000000 $t
-C:\Users\Mikew\AppData\Local\Temp\ccslvJPB.s:86     .text.DAVE_Init:00000000 DAVE_Init
+C:\Users\Mikew\AppData\Local\Temp\cckTVHli.s:20     .text.NVIC_SetPriorityGrouping:00000000 $t
+C:\Users\Mikew\AppData\Local\Temp\cckTVHli.s:24     .text.NVIC_SetPriorityGrouping:00000000 NVIC_SetPriorityGrouping
+C:\Users\Mikew\AppData\Local\Temp\cckTVHli.s:81     .text.DAVE_Init:00000000 $t
+C:\Users\Mikew\AppData\Local\Temp\cckTVHli.s:86     .text.DAVE_Init:00000000 DAVE_Init
+C:\Users\Mikew\AppData\Local\Temp\cckTVHli.s:122    .text.SystemInit_DAVE3:00000000 $t
+C:\Users\Mikew\AppData\Local\Temp\cckTVHli.s:127    .text.SystemInit_DAVE3:00000000 SystemInit_DAVE3
                      .debug_frame:00000010 $d
                            .group:00000000 wm4.1.6730aed6a8e49268c462cbcb73e91a8e
                            .group:00000000 wm4.XMC4500.h.45.215f4b8c79f46c7645c15373868d08c0
@@ -1685,8 +1748,18 @@ C:\Users\Mikew\AppData\Local\Temp\ccslvJPB.s:86     .text.DAVE_Init:00000000 DAV
                            .group:00000000 wm4.MOTORLIB.h.62.951091d95913dd2ff36d761323a1771d
                            .group:00000000 wm4.DBG001.h.116.d6d9e7459a0faa3905c97c1d2edb339d
                            .group:00000000 wm4.IO004.h.53.442ea5eb47ad9eedc675253aa35f3107
+                           .group:00000000 wm4.uc_id.h.35.91819d6149ee56f9404d69053d48d018
+                           .group:00000000 wm4.CLK001_Const.h.50.e5e9c2ddc89f4cc9e7b93e9648fa94e4
+                           .group:00000000 wm4.CLK001_Conf.h.81.82a8db895dc146da001475dd68223522
+                           .group:00000000 wm4.Usic.h.54.8af9f733ba5771eeb374435d205ea54b
+                           .group:00000000 wm4.UART001_Conf.h.53.373da30395a62a28c83a9dba6a08372e
+                           .group:00000000 wm4.UART001.h.109.3e835815a7a59791d8bd39655f4d4cc9
+                           .group:00000000 wm4.SYSTM001.h.64.6ecb31c49bc3e7691644fdcdfc11b5cd
 
 UNDEFINED SYMBOLS
 DAVE_MUX_PreInit
 IO004_Init
+CLK001_Init
+UART001_Init
+SYSTM001_Init
 DAVE_MUX_Init

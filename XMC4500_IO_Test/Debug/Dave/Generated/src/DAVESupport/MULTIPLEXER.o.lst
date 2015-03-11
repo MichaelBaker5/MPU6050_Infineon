@@ -115,106 +115,245 @@
   89:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** {  
   28              		.loc 1 89 0
   29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
+  30              		@ args = 0, pretend = 0, frame = 24
   31              		@ frame_needed = 1, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33 0000 80B4     		push	{r7}
   34              	.LCFI0:
   35              		.cfi_def_cfa_offset 4
   36              		.cfi_offset 7, -4
-  37 0002 00AF     		add	r7, sp, #0
+  37 0002 87B0     		sub	sp, sp, #28
   38              	.LCFI1:
-  39              		.cfi_def_cfa_register 7
+  39              		.cfi_def_cfa_offset 32
+  40 0004 00AF     		add	r7, sp, #0
+  41              	.LCFI2:
+  42              		.cfi_def_cfa_register 7
   90:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    	 
   91:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****             	         
-  92:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****                                           
-  93:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
-  94:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** /*        PORT Macro definitions for IOCR_OE, IOCR_PCR & HWSEL_HW     */                           
-  95:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   WR_REG(PORT1->IOCR4, PORT_IOCR_PC2_OE_Msk, PORT_IOCR_PC2_OE_Pos, PORT_IOCR_OE1);                /
-  40              		.loc 1 95 0
-  41 0004 4FF40143 		mov	r3, #33024
-  42 0008 C4F60203 		movt	r3, 18434
-  43 000c 4FF40142 		mov	r2, #33024
-  44 0010 C4F60202 		movt	r2, 18434
-  45 0014 5269     		ldr	r2, [r2, #20]
-  46 0016 42F40002 		orr	r2, r2, #8388608
-  47 001a 5A61     		str	r2, [r3, #20]
-  96:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 					                         
-  97:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   WR_REG(PORT1->IOCR8, PORT_IOCR_PC0_OE_Msk, PORT_IOCR_PC0_OE_Pos, PORT_IOCR_OE1);                /
-  48              		.loc 1 97 0
-  49 001c 4FF40143 		mov	r3, #33024
-  50 0020 C4F60203 		movt	r3, 18434
-  51 0024 4FF40142 		mov	r2, #33024
-  52 0028 C4F60202 		movt	r2, 18434
-  53 002c 9269     		ldr	r2, [r2, #24]
-  54 002e 42F08002 		orr	r2, r2, #128
-  55 0032 9A61     		str	r2, [r3, #24]
-  98:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 					      
-  99:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** }
-  56              		.loc 1 99 0
-  57 0034 BD46     		mov	sp, r7
-  58 0036 80BC     		pop	{r7}
-  59 0038 7047     		bx	lr
-  60              		.cfi_endproc
-  61              	.LFE112:
-  63 003a 00BF     		.section	.text.DAVE_MUX_PreInit,"ax",%progbits
-  64              		.align	2
-  65              		.global	DAVE_MUX_PreInit
-  66              		.thumb
-  67              		.thumb_func
-  69              	DAVE_MUX_PreInit:
-  70              	.LFB113:
- 100:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
- 101:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
- 102:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** /*******************************************************************************
- 103:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Syntax           : void DAVE_MUX_PreInit(void)                             **
- 104:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
- 105:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Reentrancy       : None                                                    **
- 106:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
- 107:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Parameters (in)  : void                                                    **
- 108:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
- 109:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Parameters (out) : none                                                    **
- 110:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
- 111:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Return value     : none                                                    **
- 112:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
- 113:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Description      : This is the Mux configuration                           **
- 114:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
- 115:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** *******************************************************************************/
- 116:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****  
- 117:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** void DAVE_MUX_PreInit(void)
- 118:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** {
-  71              		.loc 1 118 0
-  72              		.cfi_startproc
-  73              		@ args = 0, pretend = 0, frame = 0
-  74              		@ frame_needed = 1, uses_anonymous_args = 0
-  75              		@ link register save eliminated.
-  76 0000 80B4     		push	{r7}
-  77              	.LCFI2:
-  78              		.cfi_def_cfa_offset 4
-  79              		.cfi_offset 7, -4
-  80 0002 00AF     		add	r7, sp, #0
-  81              	.LCFI3:
-  82              		.cfi_def_cfa_register 7
- 119:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
- 120:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** /*        PORT Macro definitions for IOCR_OE, IOCR_PCR & HWSEL_HW     */                   
- 121:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** }
-  83              		.loc 1 121 0
-  84 0004 BD46     		mov	sp, r7
-  85 0006 80BC     		pop	{r7}
-  86 0008 7047     		bx	lr
-  87              		.cfi_endproc
-  88              	.LFE113:
-  90 000a 00BF     		.text
-  91              	.Letext0:
-  92              		.file 2 "d:\\dave-3.1.10\\arm-gcc\\bin\\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/i
-  93              		.file 3 "D:\\DAVE-3.1.10\\eclipse\\/../CMSIS/Infineon/XMC4500_series/Include/XMC4500.h"
-  94              		.file 4 "D:\\DAVE-3.1.10\\eclipse\\/../CMSIS/Include/core_cm4.h"
+  92:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****                                      
+  93:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****        /*        SCU Macro definitions     */                        
+  94:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    	 
+  95:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****       
+  96:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** //********* MODULE USIC CONFIGURATIONS *************************	        
+  97:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****         
+  98:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****            
+  99:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    /* Disable mode before configuring all USIC registers to avoid unintended edges */   
+ 100:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****       /* Variable to store the CCR_MODE values for various USIC channels */ 
+ 101:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****       uint32_t UsicCcrMode[6] = {0};
+  43              		.loc 1 101 0
+  44 0006 3B46     		mov	r3, r7
+  45 0008 4FF00002 		mov	r2, #0
+  46 000c 1A60     		str	r2, [r3, #0]
+  47 000e 03F10403 		add	r3, r3, #4
+  48 0012 4FF00002 		mov	r2, #0
+  49 0016 1A60     		str	r2, [r3, #0]
+  50 0018 03F10403 		add	r3, r3, #4
+  51 001c 4FF00002 		mov	r2, #0
+  52 0020 1A60     		str	r2, [r3, #0]
+  53 0022 03F10403 		add	r3, r3, #4
+  54 0026 4FF00002 		mov	r2, #0
+  55 002a 1A60     		str	r2, [r3, #0]
+  56 002c 03F10403 		add	r3, r3, #4
+  57 0030 4FF00002 		mov	r2, #0
+  58 0034 1A60     		str	r2, [r3, #0]
+  59 0036 03F10403 		add	r3, r3, #4
+  60 003a 4FF00002 		mov	r2, #0
+  61 003e 1A60     		str	r2, [r3, #0]
+  62 0040 03F10403 		add	r3, r3, #4
+ 102:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****            
+ 103:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****     UsicCcrMode[0] |= (uint32_t) RD_REG(USIC0_CH0->CCR, USIC_CH_CCR_MODE_Msk, USIC_CH_CCR_MODE_Pos)
+  63              		.loc 1 103 0
+  64 0044 3A68     		ldr	r2, [r7, #0]
+  65 0046 4FF00003 		mov	r3, #0
+  66 004a C4F20303 		movt	r3, 16387
+  67 004e 1B6C     		ldr	r3, [r3, #64]
+  68 0050 03F00F03 		and	r3, r3, #15
+  69 0054 1343     		orrs	r3, r3, r2
+  70 0056 3B60     		str	r3, [r7, #0]
+ 104:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****     WR_REG(USIC0_CH0->CCR, USIC_CH_CCR_MODE_Msk, USIC_CH_CCR_MODE_Pos,0);  
+  71              		.loc 1 104 0
+  72 0058 4FF00003 		mov	r3, #0
+  73 005c C4F20303 		movt	r3, 16387
+  74 0060 4FF00002 		mov	r2, #0
+  75 0064 C4F20302 		movt	r2, 16387
+  76 0068 126C     		ldr	r2, [r2, #64]
+  77 006a 22F00F02 		bic	r2, r2, #15
+  78 006e 1A64     		str	r2, [r3, #64]
+ 105:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****                         
+ 106:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****       
+ 107:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****     						
+ 108:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    /*USIC 0 Channel 0 Mux Related SFR/Bitfields Configurations*/ 						         
+ 109:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****  WR_REG(USIC0_CH0->DX0CR, USIC_CH_DX0CR_DSEL_Msk, USIC_CH_DX0CR_DSEL_Pos,1); 
+  79              		.loc 1 109 0
+  80 0070 4FF00003 		mov	r3, #0
+  81 0074 C4F20303 		movt	r3, 16387
+  82 0078 4FF00002 		mov	r2, #0
+  83 007c C4F20302 		movt	r2, 16387
+  84 0080 D269     		ldr	r2, [r2, #28]
+  85 0082 22F00702 		bic	r2, r2, #7
+  86 0086 42F00102 		orr	r2, r2, #1
+  87 008a DA61     		str	r2, [r3, #28]
+ 110:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   			  					 				 				 		       				              				  					    					 					   				  					 				 			
+ 111:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****           
+ 112:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    // Data Pointer & Buffer Size for Transmitter Buffer Control  
+ 113:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****  WR_REG(USIC0_CH0->TBCTR, USIC_CH_TBCTR_DPTRSIZE_Msk, USIC_CH_TBCTR_DPTRSIZE_Pos,0x03000000);		/*  
+  88              		.loc 1 113 0
+  89 008c 4FF00003 		mov	r3, #0
+  90 0090 C4F20303 		movt	r3, 16387
+  91 0094 4FF00002 		mov	r2, #0
+  92 0098 C4F20302 		movt	r2, 16387
+  93 009c D2F80821 		ldr	r2, [r2, #264]
+  94 00a0 22F0E062 		bic	r2, r2, #117440512
+  95 00a4 22F03F02 		bic	r2, r2, #63
+  96 00a8 42F04072 		orr	r2, r2, #50331648
+  97 00ac C3F80821 		str	r2, [r3, #264]
+ 114:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****            
+ 115:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   // Data Pointer & Buffer Size for Receiver Buffer Control  
+ 116:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****  WR_REG(USIC0_CH0->RBCTR, USIC_CH_RBCTR_DPTRSIZE_Msk, USIC_CH_RBCTR_DPTRSIZE_Pos,0x01000008);		/*  
+  98              		.loc 1 116 0
+  99 00b0 4FF00003 		mov	r3, #0
+ 100 00b4 C4F20303 		movt	r3, 16387
+ 101 00b8 4FF00002 		mov	r2, #0
+ 102 00bc C4F20302 		movt	r2, 16387
+ 103 00c0 D2F80C21 		ldr	r2, [r2, #268]
+ 104 00c4 22F0E062 		bic	r2, r2, #117440512
+ 105 00c8 22F03F02 		bic	r2, r2, #63
+ 106 00cc 42F08072 		orr	r2, r2, #16777216
+ 107 00d0 42F00802 		orr	r2, r2, #8
+ 108 00d4 C3F80C21 		str	r2, [r3, #268]
+ 117:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****  						
+ 118:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    /*USIC 0 Channel 1 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		     
+ 119:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****          						
+ 120:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    /*USIC 1 Channel 0 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		     
+ 121:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****        						
+ 122:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    /*USIC 1 Channel 1 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		     
+ 123:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****          						
+ 124:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    /*USIC 2 Channel 0 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		     
+ 125:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****        						
+ 126:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    /*USIC 2 Channel 1 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		     
+ 127:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****          
+ 128:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   
+ 129:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   /* Enable mode after configuring all USIC registers to avoid unintended edges */  
+ 130:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****             
+ 131:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    WR_REG(USIC0_CH0->CCR, USIC_CH_CCR_MODE_Msk, USIC_CH_CCR_MODE_Pos,UsicCcrMode[0]); 
+ 109              		.loc 1 131 0
+ 110 00d8 4FF00003 		mov	r3, #0
+ 111 00dc C4F20303 		movt	r3, 16387
+ 112 00e0 3A68     		ldr	r2, [r7, #0]
+ 113 00e2 02F00F01 		and	r1, r2, #15
+ 114 00e6 4FF00002 		mov	r2, #0
+ 115 00ea C4F20302 		movt	r2, 16387
+ 116 00ee 126C     		ldr	r2, [r2, #64]
+ 117 00f0 22F00F02 		bic	r2, r2, #15
+ 118 00f4 0A43     		orrs	r2, r2, r1
+ 119 00f6 1A64     		str	r2, [r3, #64]
+ 132:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****                    	         
+ 133:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****                                               
+ 134:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    	 
+ 135:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****             	         
+ 136:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****                                               
+ 137:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****    	 
+ 138:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****             	         
+ 139:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****                                           
+ 140:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
+ 141:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** /*        PORT Macro definitions for IOCR_OE, IOCR_PCR & HWSEL_HW     */                           
+ 142:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   WR_REG(PORT1->IOCR4, 0xb800U, PORT_IOCR_PC1_PCR_Pos, 0x12U);                /*P1.5 : PORT1_IOCR4_
+ 120              		.loc 1 142 0
+ 121 00f8 4FF40143 		mov	r3, #33024
+ 122 00fc C4F60203 		movt	r3, 18434
+ 123 0100 4FF40142 		mov	r2, #33024
+ 124 0104 C4F60202 		movt	r2, 18434
+ 125 0108 5269     		ldr	r2, [r2, #20]
+ 126 010a 22F43842 		bic	r2, r2, #47104
+ 127 010e 42F41042 		orr	r2, r2, #36864
+ 128 0112 5A61     		str	r2, [r3, #20]
+ 143:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 					                         
+ 144:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   WR_REG(PORT1->IOCR4, PORT_IOCR_PC2_OE_Msk, PORT_IOCR_PC2_OE_Pos, PORT_IOCR_OE1);                /
+ 129              		.loc 1 144 0
+ 130 0114 4FF40143 		mov	r3, #33024
+ 131 0118 C4F60203 		movt	r3, 18434
+ 132 011c 4FF40142 		mov	r2, #33024
+ 133 0120 C4F60202 		movt	r2, 18434
+ 134 0124 5269     		ldr	r2, [r2, #20]
+ 135 0126 42F40002 		orr	r2, r2, #8388608
+ 136 012a 5A61     		str	r2, [r3, #20]
+ 145:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 					                         
+ 146:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****   WR_REG(PORT1->IOCR8, PORT_IOCR_PC0_OE_Msk, PORT_IOCR_PC0_OE_Pos, PORT_IOCR_OE1);                /
+ 137              		.loc 1 146 0
+ 138 012c 4FF40143 		mov	r3, #33024
+ 139 0130 C4F60203 		movt	r3, 18434
+ 140 0134 4FF40142 		mov	r2, #33024
+ 141 0138 C4F60202 		movt	r2, 18434
+ 142 013c 9269     		ldr	r2, [r2, #24]
+ 143 013e 42F08002 		orr	r2, r2, #128
+ 144 0142 9A61     		str	r2, [r3, #24]
+ 147:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 					      
+ 148:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** }
+ 145              		.loc 1 148 0
+ 146 0144 07F11C07 		add	r7, r7, #28
+ 147 0148 BD46     		mov	sp, r7
+ 148 014a 80BC     		pop	{r7}
+ 149 014c 7047     		bx	lr
+ 150              		.cfi_endproc
+ 151              	.LFE112:
+ 153 014e 00BF     		.section	.text.DAVE_MUX_PreInit,"ax",%progbits
+ 154              		.align	2
+ 155              		.global	DAVE_MUX_PreInit
+ 156              		.thumb
+ 157              		.thumb_func
+ 159              	DAVE_MUX_PreInit:
+ 160              	.LFB113:
+ 149:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
+ 150:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
+ 151:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** /*******************************************************************************
+ 152:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Syntax           : void DAVE_MUX_PreInit(void)                             **
+ 153:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
+ 154:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Reentrancy       : None                                                    **
+ 155:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
+ 156:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Parameters (in)  : void                                                    **
+ 157:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
+ 158:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Parameters (out) : none                                                    **
+ 159:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
+ 160:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Return value     : none                                                    **
+ 161:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
+ 162:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** ** Description      : This is the Mux configuration                           **
+ 163:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** **                                                                            **
+ 164:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** *******************************************************************************/
+ 165:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c ****  
+ 166:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** void DAVE_MUX_PreInit(void)
+ 167:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** {            
+ 161              		.loc 1 167 0
+ 162              		.cfi_startproc
+ 163              		@ args = 0, pretend = 0, frame = 0
+ 164              		@ frame_needed = 1, uses_anonymous_args = 0
+ 165              		@ link register save eliminated.
+ 166 0000 80B4     		push	{r7}
+ 167              	.LCFI3:
+ 168              		.cfi_def_cfa_offset 4
+ 169              		.cfi_offset 7, -4
+ 170 0002 00AF     		add	r7, sp, #0
+ 171              	.LCFI4:
+ 172              		.cfi_def_cfa_register 7
+ 168:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** 
+ 169:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** /*        PORT Macro definitions for IOCR_OE, IOCR_PCR & HWSEL_HW     */                   
+ 170:../Dave/Generated/src/DAVESupport/MULTIPLEXER.c **** }
+ 173              		.loc 1 170 0
+ 174 0004 BD46     		mov	sp, r7
+ 175 0006 80BC     		pop	{r7}
+ 176 0008 7047     		bx	lr
+ 177              		.cfi_endproc
+ 178              	.LFE113:
+ 180 000a 00BF     		.text
+ 181              	.Letext0:
+ 182              		.file 2 "d:\\dave-3.1.10\\arm-gcc\\bin\\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/i
+ 183              		.file 3 "D:\\DAVE-3.1.10\\eclipse\\/../CMSIS/Infineon/XMC4500_series/Include/XMC4500.h"
+ 184              		.file 4 "D:\\DAVE-3.1.10\\eclipse\\/../CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 MULTIPLEXER.c
-C:\Users\Mikew\AppData\Local\Temp\ccbhAXrZ.s:20     .text.DAVE_MUX_Init:00000000 $t
-C:\Users\Mikew\AppData\Local\Temp\ccbhAXrZ.s:25     .text.DAVE_MUX_Init:00000000 DAVE_MUX_Init
-C:\Users\Mikew\AppData\Local\Temp\ccbhAXrZ.s:64     .text.DAVE_MUX_PreInit:00000000 $t
-C:\Users\Mikew\AppData\Local\Temp\ccbhAXrZ.s:69     .text.DAVE_MUX_PreInit:00000000 DAVE_MUX_PreInit
+C:\Users\Mikew\AppData\Local\Temp\ccW4xklt.s:20     .text.DAVE_MUX_Init:00000000 $t
+C:\Users\Mikew\AppData\Local\Temp\ccW4xklt.s:25     .text.DAVE_MUX_Init:00000000 DAVE_MUX_Init
+C:\Users\Mikew\AppData\Local\Temp\ccW4xklt.s:154    .text.DAVE_MUX_PreInit:00000000 $t
+C:\Users\Mikew\AppData\Local\Temp\ccW4xklt.s:159    .text.DAVE_MUX_PreInit:00000000 DAVE_MUX_PreInit
                      .debug_frame:00000010 $d
                            .group:00000000 wm4.1.6730aed6a8e49268c462cbcb73e91a8e
                            .group:00000000 wm4.XMC4500.h.45.215f4b8c79f46c7645c15373868d08c0
@@ -236,5 +375,12 @@ C:\Users\Mikew\AppData\Local\Temp\ccbhAXrZ.s:69     .text.DAVE_MUX_PreInit:00000
                            .group:00000000 wm4.MOTORLIB.h.62.951091d95913dd2ff36d761323a1771d
                            .group:00000000 wm4.DBG001.h.116.d6d9e7459a0faa3905c97c1d2edb339d
                            .group:00000000 wm4.IO004.h.53.442ea5eb47ad9eedc675253aa35f3107
+                           .group:00000000 wm4.uc_id.h.35.91819d6149ee56f9404d69053d48d018
+                           .group:00000000 wm4.CLK001_Const.h.50.e5e9c2ddc89f4cc9e7b93e9648fa94e4
+                           .group:00000000 wm4.CLK001_Conf.h.81.82a8db895dc146da001475dd68223522
+                           .group:00000000 wm4.Usic.h.54.8af9f733ba5771eeb374435d205ea54b
+                           .group:00000000 wm4.UART001_Conf.h.53.373da30395a62a28c83a9dba6a08372e
+                           .group:00000000 wm4.UART001.h.109.3e835815a7a59791d8bd39655f4d4cc9
+                           .group:00000000 wm4.SYSTM001.h.64.6ecb31c49bc3e7691644fdcdfc11b5cd
 
 NO UNDEFINED SYMBOLS

@@ -55,6 +55,8 @@ extern "C" {
 //****************************************************************************
 
 void DAVE_Init(void);
+
+void SystemInit_DAVE3(void);
       
 //****************************************************************************
 // @Project Includes
@@ -72,6 +74,10 @@ void DAVE_Init(void);
 	#include "../../inc/LIBS/LIBS.h" 
 	#include "../../inc/DBG001/DBG001.h" 
 	#include "../../inc/IO004/IO004.h" 
+	#include "../../inc/CLK001/CLK001.h" 
+	#include "../../inc/RESET001/RESET001.h" 
+	#include "../../inc/UART001/UART001.h" 
+	#include "../../inc/SYSTM001/SYSTM001.h" 
 
                          
 

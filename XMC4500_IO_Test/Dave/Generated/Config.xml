@@ -12,6 +12,11 @@
     <Generated_Files>
         <Source_Files>
             <Source_File>
+                <File_Name>CLK001.c</File_Name>
+                <Path>\Dave\Generated\src\CLK001\CLK001.c</Path>
+                <Type>C File</Type>
+            </Source_File>
+            <Source_File>
                 <File_Name>DAVE3.c</File_Name>
                 <Path>\Dave\Generated\src\DAVESupport\DAVE3.c</Path>
                 <Type>C File</Type>
@@ -41,8 +46,43 @@
                 <Path>\Dave\Generated\src\LIBS\MOTORLIB.c</Path>
                 <Type>C File</Type>
             </Source_File>
+            <Source_File>
+                <File_Name>RESET001.c</File_Name>
+                <Path>\Dave\Generated\src\RESET001\RESET001.c</Path>
+                <Type>C File</Type>
+            </Source_File>
+            <Source_File>
+                <File_Name>SYSTM001.c</File_Name>
+                <Path>\Dave\Generated\src\SYSTM001\SYSTM001.c</Path>
+                <Type>C File</Type>
+            </Source_File>
+            <Source_File>
+                <File_Name>UART001.c</File_Name>
+                <Path>\Dave\Generated\src\UART001\UART001.c</Path>
+                <Type>C File</Type>
+            </Source_File>
+            <Source_File>
+                <File_Name>UART001_Conf.c</File_Name>
+                <Path>\Dave\Generated\src\UART001\UART001_Conf.c</Path>
+                <Type>C File</Type>
+            </Source_File>
         </Source_Files>
         <Header_Files>
+            <Header_File>
+                <File_Name>CLK001.h</File_Name>
+                <Path>\Dave\Generated\inc\CLK001\CLK001.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>CLK001_Conf.h</File_Name>
+                <Path>\Dave\Generated\inc\CLK001\CLK001_Conf.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>CLK001_Const.h</File_Name>
+                <Path>\Dave\Generated\inc\CLK001\CLK001_Const.h</Path>
+                <Type>H File</Type>
+            </Header_File>
             <Header_File>
                 <File_Name>DAVE3.h</File_Name>
                 <Path>\Dave\Generated\inc\DAVESupport\DAVE3.h</Path>
@@ -91,6 +131,36 @@
             <Header_File>
                 <File_Name>MOTORLIBS.h</File_Name>
                 <Path>\Dave\Generated\inc\MOTORLIBS\MOTORLIBS.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>RESET001.h</File_Name>
+                <Path>\Dave\Generated\inc\RESET001\RESET001.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>SYSTM001.h</File_Name>
+                <Path>\Dave\Generated\inc\SYSTM001\SYSTM001.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>UART001.h</File_Name>
+                <Path>\Dave\Generated\inc\UART001\UART001.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>UART001_Conf.h</File_Name>
+                <Path>\Dave\Generated\inc\UART001\UART001_Conf.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>UART001_Extern.h</File_Name>
+                <Path>\Dave\Generated\inc\UART001\UART001_Extern.h</Path>
+                <Type>H File</Type>
+            </Header_File>
+            <Header_File>
+                <File_Name>Usic.h</File_Name>
+                <Path>\Dave\Generated\inc\UART001\Usic.h</Path>
                 <Type>H File</Type>
             </Header_File>
         </Header_Files>

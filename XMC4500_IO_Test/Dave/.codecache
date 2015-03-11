@@ -11,5 +11,11 @@
         <File genName="LIBS.h" genPath="Dave\Generated\inc\LIBS\LIBS.h" jetPath="LIBS/1.0.28/Templates/LIBSh.jet" location="bin\CodeGenerator\libsh_template.class"/>
         <File genName="IO004.c" genPath="Dave\Generated\src\IO004\IO004.c" jetPath="IO004/1.0.22/Templates/IO004c.jet" location="bin\CodeGenerator\io004c_template.class"/>
         <File genName="DAVE3.h" genPath="Dave\Generated\inc\DAVESupport\DAVE3.h" jetPath="DAVESUPPORT/1.0.44/Templates/DAVE3_H.jet" location="bin\CodeGenerator\dave3_h_template.class"/>
+    <File genName="CLK001_Conf.h" genPath="Dave\Generated\inc\CLK001\CLK001_Conf.h" jetPath="CLK001/1.0.44/Templates/CLK001_Confh.jet" location="bin\CodeGenerator\clk001_confh_template.class"/>
+        <File genName="SYSTM001.c" genPath="Dave\Generated\src\SYSTM001\SYSTM001.c" jetPath="SYSTM001/1.0.18/Templates/SYSTM001c.jet" location="bin\CodeGenerator\systm001c_template.class"/>
+        <File genName="SYSTM001.h" genPath="Dave\Generated\inc\SYSTM001\SYSTM001.h" jetPath="SYSTM001/1.0.18/Templates/SYSTM001_h.jet" location="bin\CodeGenerator\systm001_hTemplate.class"/>
+        <File genName="UART001_Conf.h" genPath="Dave\Generated\inc\UART001\UART001_Conf.h" jetPath="UART001/1.0.24/Templates/UART001_Confh.jet" location="bin\CodeGenerator\uart001_confh_template.class"/>
+        <File genName="UART001_Conf.c" genPath="Dave\Generated\src\UART001\UART001_Conf.c" jetPath="UART001/1.0.24/Templates/UART001_Confc.jet" location="bin\CodeGenerator\uart001_confc_template.class"/>
+        <File genName="UART001_Extern.h" genPath="Dave\Generated\inc\UART001\UART001_Extern.h" jetPath="UART001/1.0.24/Templates/UART001_Externh.jet" location="bin\CodeGenerator\uart001_externh_template.class"/>
     </TemplateCaches>
 </Cache>
