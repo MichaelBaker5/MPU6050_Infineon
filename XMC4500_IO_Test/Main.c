@@ -416,7 +416,7 @@ bool Single_Write(unsigned char SlaveAddress,unsigned char REG_Address,unsigned 
 
     I2C_Stop();
 
-    delay5ms();// TODO:   需要实现
+ //   delay5ms();// TODO:   需要实现
 
     return TRUE;
 
@@ -534,10 +534,10 @@ void READ_MPU6050(void)
 
 }
 
-/*void mypuchar(uchar axis)
+void myputchar(uchar axis)
 {
 	USART1_SendData(&axis);
-}*/
+}
  //********串口发送数据***************************************
 
  void Send_data(uchar axis)
@@ -932,13 +932,17 @@ int main()
 
 	USART1_SendData(0X0A);	 //回车
 */
+	myputchar(0X0D);
+	myputchar(0X0A);
+//	myputchar('\n');
+//	myputchar('\r');
 /*
 	Send_data(0X0D);	 //换行
 
 	Send_data(0X0A);	 //回车
 */
 	//Delayms(5);				 //延时
-    delay5ms();
+ //   delay5ms();
 
 	}
 	return 0;
