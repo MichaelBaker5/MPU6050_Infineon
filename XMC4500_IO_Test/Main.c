@@ -750,7 +750,7 @@ bool i2cWriteBuffer(uint8_t addr, uint8_t reg, uint8_t len, uint8_t * data)
 #ifdef XMC_Soft_IIC
 bool i2cRead(uint8_t addr, uint8_t reg, uint8_t len, uint8_t *buf)
 {
-    if (!I2C_Start());
+    if (!I2C_Start())
         return FALSE;
     I2C_SendByte(addr << 1 | I2C_Direction_Transmitter);
     if (!I2C_WaitAck()) {
